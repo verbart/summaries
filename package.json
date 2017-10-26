@@ -1,0 +1,31 @@
+{
+  "name": "developers",
+  "version": "0.1.0",
+  "main": "./app",
+  "scripts": {
+    "start": "babel-node ./app/server",
+    "serve": "nodemon --exec 'npm run lint && npm start'",
+    "lint": "eslint ./app",
+    "lint:fix": "eslint --fix ./app"
+  },
+  "author": "Artem Verbat",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.9.0",
+    "eslint-config-google": "^0.9.1",
+    "koa": "^2.3.0",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "config": "^1.27.0",
+    "dotenv": "^4.0.0",
+    "keymirror": "^0.1.1",
+    "mongoose": "^4.12.4"
+  }
+}
