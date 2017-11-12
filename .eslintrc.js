@@ -4,17 +4,16 @@ module.exports = {
   "node": true,
     "es6": true
   },
-  "parserOptions": {
+    "parserOptions": {
     "sourceType": "module"
   },
-  "extends": [
-    "eslint:recommended",
-    "google"
-  ],
+  "extends": ["eslint:recommended", "google"],
   "rules": {
-  "no-console": 0,
+    "no-console": 0,
     "object-curly-spacing": 0,
     "max-len": 0,
-    "require-jsdoc": 0
+    "require-jsdoc": 0,
+    "no-invalid-this": 0,
+    "comma-dangle": 0
   }
 };
