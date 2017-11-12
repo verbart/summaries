@@ -6,7 +6,8 @@
     "start": "babel-node ./app/server",
     "serve": "nodemon --exec 'npm run lint && npm start'",
     "lint": "eslint ./app",
-    "lint:fix": "eslint --fix ./app"
+    "lint:fix": "eslint --fix ./app",
+    "seed": "babel-node app/seeds"
   },
   "author": "Artem Verbat",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
+    "faker": "^4.1.0",
     "koa": "^2.3.0",
     "nodemon": "^1.12.1"
   },

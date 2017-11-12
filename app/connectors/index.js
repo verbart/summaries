@@ -8,7 +8,7 @@ async function connectorsInit() {
     await mongooseConnector(MONGO_URI);
   } catch (e) {
     server.close();
-    console.log(e);
+    console.error(e);
   }
 }
 
