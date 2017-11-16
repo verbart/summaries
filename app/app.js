@@ -8,10 +8,12 @@ connectorsInit();
 const app = new Koa();
 
 initHandlers(app);
+
 app.use(modules);
 
 app.use(async (ctx) => {
-  ctx.body = `<h1>It Works!</h1>`;
+  ctx.status = 404;
+  ctx.body = `<h1 align="center">Error 404. Resource not found</h1>`;
 });
 
 
