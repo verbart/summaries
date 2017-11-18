@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 import controller from './auth.controller';
-import checkUser from '../../handlers/check-user';
+import Auth from './auth.service';
 
 
 const router = new Router({ prefix: '/auth' });
@@ -8,7 +8,7 @@ const router = new Router({ prefix: '/auth' });
 router
   .post('/signup', controller.signUp)
   .post('/signin', controller.signIn)
-  .get('/private', checkUser(), (ctx) => {
+  .get('/private', Auth.isAuthenticated(), (ctx) => {
     ctx.body = ctx.user;
   });
 

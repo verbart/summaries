@@ -1,6 +1,7 @@
 import faker from 'faker';
 import _ from 'lodash';
-import User from '../modules/user';
+import uuid from 'uuid/v4';
+import User from '../modules/user/user.model';
 
 
 function init() {
@@ -8,7 +9,8 @@ function init() {
 
   _.times(20, () => {
     const userPromise = User.create({
-      email: `${faker.lorem.word(2, 10)}@${faker.lorem.word(2, 10)}`,
+      hash: uuid(),
+      email: faker.internet.email(),
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       password: 1111

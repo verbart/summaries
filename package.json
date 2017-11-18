@@ -21,20 +21,22 @@
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
     "faker": "^4.1.0",
-    "koa": "^2.3.0",
     "nodemon": "^1.12.1"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "composable-middleware": "^0.3.0",
     "config": "^1.27.0",
     "dotenv": "^4.0.0",
     "jsonwebtoken": "^8.1.0",
     "keymirror": "^0.1.1",
+    "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-logger": "^3.1.0",
     "koa-router": "^7.2.1",
     "lodash": "^4.17.4",
     "mongoose": "^4.12.4",
-    "mongoose-unique-validator": "^1.0.6"
+    "mongoose-unique-validator": "^1.0.6",
+    "uuid": "^3.1.0"
   }
 }
