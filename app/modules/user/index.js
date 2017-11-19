@@ -1,18 +1,19 @@
 import Router from 'koa-router';
 import controller from './user.controller';
 import UserService from './user.service';
+// import Auth from '../auth/auth.service';
 
 
 const router = new Router({ prefix: '/users' });
 
 router
   .get('/', controller.index)
+  //   .post('/', Auth.hasRole('admin'), controller.create);
   .param('id', UserService.checkUser())
-  //   .delete('/:id', auth.hasRole('admin'), controller.destroy)
-//   .get('/me', auth.isAuthenticated(), controller.me)
-//   .put('/:id/password', auth.isAuthenticated(), controller.changePassword)
-  .get('/:id', controller.show);
-//   .post('/', controller.create);
+  .get('/:id', controller.show)
+  //  .delete('/:id', Auth.hasRole('admin'), controller.destroy)
+  //  .put('/:id/password', Auth.hasRole('admin'), controller.changePassword)
+  .get('/:id/summaries', controller.getSummariesByUser);
 
 
 export default router.routes();

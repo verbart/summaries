@@ -22,7 +22,7 @@ export default {
       userId: ctx.user._id
     };
 
-    const { _id } = await SummaryService.create(summaryData);
+    const { _id } = await SummaryService.createSummary(summaryData);
     const summary = await Summary.findOne({ _id });
 
     ctx.status = 201;

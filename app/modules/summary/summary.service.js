@@ -16,7 +16,11 @@ export default {
   async updateSummary(data, summary) {
     summary.set(data);
 
-    return summary.save();
+    try {
+      summary.save();
+    } catch (e) {
+      throw new AppError({ status: 400, ...e });
+    }
   },
 
   checkSummary: () => async (_id, ctx, next) => {

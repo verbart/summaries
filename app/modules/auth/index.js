@@ -8,9 +8,7 @@ const router = new Router({ prefix: '/auth' });
 router
   .post('/signup', controller.signUp)
   .post('/signin', controller.signIn)
-  .get('/private', Auth.isAuthenticated(), (ctx) => {
-    ctx.body = ctx.user;
-  });
+  .get('/self', Auth.isAuthenticated(), controller.getCurrentUser);
 
 
 export default router.routes();

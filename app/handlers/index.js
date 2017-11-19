@@ -4,6 +4,7 @@ import error from './error';
 import jwt from './jwt';
 import { IS_DEV } from '../utils/env';
 
+
 export default (app) => {
   if (IS_DEV) {
     app.use(logger());

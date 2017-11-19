@@ -14,7 +14,7 @@ export default {
     const user = await User.findOne({ _id });
 
     if (!user) {
-      ctx.throw(404, `Summary with id "${_id}" not found`);
+      ctx.throw(404, `User with id "${_id}" not found`);
     }
 
     ctx.user = user;
