@@ -9,6 +9,8 @@ initSeeds();
 async function initSeeds() {
   const mongoConnection = await mongooseConnector(MONGO_URI);
 
+  console.log('Seeding is started...');
+
   await mongoConnection.dropDatabase();
 
   try {
