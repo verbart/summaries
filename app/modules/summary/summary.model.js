@@ -1,12 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
-import uuid from 'uuid/v4';
 
 
 const SummarySchema = new Schema({
-  hash: {
-    type: String,
-    unique: 'Hash must be unique'
-  },
   userId: {
     type: String,
     required: 'User id is required',
@@ -67,14 +62,6 @@ const SummarySchema = new Schema({
 });
 
 SummarySchema.statics.createFields = ['title', 'phone', 'skype', 'description', 'history', 'tags'];
-
-SummarySchema.pre('save', function(next) {
-  if (!this.hash) {
-    this.hash = uuid();
-  }
-
-  next();
-});
 
 
 export default mongoose.model('summary', SummarySchema);
