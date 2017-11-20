@@ -13,10 +13,9 @@ async function initSeeds() {
 
   try {
     const users = await userSeeds();
-    const summaries = await summarySeeds(users);
+    await summarySeeds(users);
 
-    console.log(users);
-    console.log(summaries);
+    console.log('Seeding is complete');
   } catch (e) {
     console.error(e);
   } finally {

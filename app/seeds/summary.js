@@ -1,6 +1,5 @@
 import faker from 'faker';
 import _ from 'lodash';
-import uuid from 'uuid/v4';
 import Summary from '../modules/summary/summary.model';
 
 
@@ -13,7 +12,6 @@ export default (users) => {
 
   _.times(20, () => {
     const summaryPromise = Summary.create({
-      hash: uuid(),
       title: faker.lorem.words(2, 5),
       description: faker.lorem.lines(4, 10),
       tags: faker.lorem.words(2, 6).split(' '),
