@@ -30,8 +30,34 @@ export default {
       ctx.throw(404, `Summary with id "${_id}" not found`);
     }
 
-    ctx.summary = summary;
+    ctx.state.summary = summary;
 
     await next();
+  },
+
+  async searchSummary({ size, page, title, tags }) {
+    const query = {
+      title: { $regex: title }
+    };
+
+    if (tags.length) {
+      query.tags = { $in: tags };
+    }
+
+    const count = await Summary
+      .count(query)
+      .sort({ updatedAt: '-1' });
+    const pages = Math.ceil(count / size);
+    const summaries = await Summary
+      .find(query)
+      .sort({ updatedAt: '-1' })
+      .limit(size)
+      .skip((page - 1) * size);
+
+    return {
+      summaries,
+      count,
+      pages
+    };
   }
 };

@@ -57,8 +57,10 @@ const SummarySchema = new Schema({
       type: String,
       required: 'Description is required',
       trim: true,
-    },
+    }
   }],
+}, {
+  timestamps: true
 });
 
 SummarySchema.statics.createFields = ['title', 'phone', 'skype', 'description', 'history', 'tags'];

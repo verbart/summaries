@@ -17,7 +17,7 @@ export default {
       ctx.throw(404, `User with id "${_id}" not found`);
     }
 
-    ctx.user = user;
+    ctx.state.user = user;
 
     await next();
   },

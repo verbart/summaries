@@ -1,6 +1,6 @@
 export default {
   isAuthenticated: () => async (ctx, next) => {
-    if (!ctx.user) {
+    if (!ctx.state.user) {
       ctx.throw(403, { message: 'Forbidden' });
     }
 

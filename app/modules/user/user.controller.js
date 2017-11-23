@@ -16,7 +16,7 @@ export default {
   },
 
   async show(ctx) {
-    const { user: { _id } } = ctx;
+    const { state: { user: { _id } } } = ctx;
     const user = await UserService.getUserWithPublicFields({ _id });
 
     ctx.body = { data: user };

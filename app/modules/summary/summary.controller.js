@@ -1,17 +1,25 @@
 import pick from 'lodash/pick';
 import Summary from './summary.model';
 import SummaryService from './summary.service';
+import parseQueryForSearch from './helpers/parse-query-for-search';
 
 
 export default {
   async index(ctx) {
-    const summaries = await Summary.find();
+    const queryParams = pick(ctx.request.query, ['title', 'tags', 'size', 'page']);
+    const filter = parseQueryForSearch(queryParams);
 
-    ctx.body = { data: summaries };
+    const { summaries, ...rest } = await SummaryService.searchSummary(filter);
+
+    ctx.body = {
+      ...rest,
+      filter,
+      data: summaries
+    };
   },
 
   async show(ctx) {
-    const { summary } = ctx;
+    const { state: { summary } } = ctx;
 
     ctx.body = { data: summary };
   },
@@ -19,7 +27,7 @@ export default {
   async create(ctx) {
     const summaryData = {
       ...pick(ctx.request.body, Summary.createFields),
-      userId: ctx.user._id
+      userId: ctx.state.user._id
     };
 
     const { _id } = await SummaryService.createSummary(summaryData);
@@ -31,12 +39,14 @@ export default {
 
   async update(ctx) {
     const {
-      summary,
       request: {
         body
       },
-      user: {
-        _id: userId
+      state: {
+        user: {
+          _id: userId
+        },
+        summary
       }
     } = ctx;
 
@@ -52,9 +62,11 @@ export default {
 
   async destroy(ctx) {
     const {
-      summary,
-      user: {
-        _id: userId
+      state: {
+        user: {
+          _id: userId
+        },
+        summary
       }
     } = ctx;
 
