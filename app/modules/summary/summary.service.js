@@ -37,7 +37,7 @@ export default {
 
   async searchSummary({ size, page, title, tags }) {
     const query = {
-      title: { $regex: title }
+      title: { $regex: new RegExp(title, 'ig') }
     };
 
     if (tags.length) {

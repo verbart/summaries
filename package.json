@@ -1,6 +1,8 @@
 {
   "name": "developers",
   "version": "0.1.0",
+  "author": "Artem Verbat",
+  "license": "ISC",
   "main": "./app",
   "scripts": {
     "start": "babel-node ./app/server",
@@ -9,8 +11,6 @@
     "lint:fix": "eslint --fix ./app",
     "seed": "babel-node app/seeds"
   },
-  "author": "Artem Verbat",
-  "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
