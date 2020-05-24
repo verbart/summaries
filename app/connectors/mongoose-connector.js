@@ -6,7 +6,11 @@ mongoose.Promise = Promise;
 
 export default (mongoUri) => {
   return mongoose
-    .connect(mongoUri, { useMongoClient: true })
+    .connect(mongoUri, {
+      useCreateIndex: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
     .then((mongodb) => {
       console.log(`Mongo is connected`);
 
